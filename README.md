@@ -7,3 +7,6 @@ Bhumilkumar Vrajlalbhai Kukadiya
 James Lord
 
 Sree Divya Sudagoni
+
+
+This project is about a gallery.
