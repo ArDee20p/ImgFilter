@@ -7,3 +7,7 @@ Bhumilkumar Vrajlalbhai Kukadiya
 James Lord
 
 Sree Divya Sudagoni
+
+### Project Topic
+
+This project is about an image filtering web application and image gallery.
