@@ -1,3 +1,5 @@
-Flask~=2.0.3
-PyWebIO~=1.5.2
-Pillow
+Flask==2.1.1
+PyWebIO==1.6.0
+Pillow==9.1.0
+PyMongo~=4.1.0
+passlib~=1.7.4
