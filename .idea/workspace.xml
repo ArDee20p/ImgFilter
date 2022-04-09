@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="- refactor to frontend and backend division&#10;- divide code more regularly">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/image_routines.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/gallery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/image_editor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/user_profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.py" afterDir="false" />
+    </list>
+    <list id="2d8115a7-8473-4e96-8ba4-571a3efef6ee" name="Changes by Bhumil" comment="" />
+    <list id="53e9e1aa-da48-4fcc-9799-67228474bff8" name="Changes by Student" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/james" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="272juvZPes8eoAEnxD4jHNeOaTO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\OLD" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\frontend" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="COMP680-Group8" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="" />
+      <created>1648525302428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648525302428</updated>
+      <workItem from="1648525304744" duration="818000" />
+      <workItem from="1649096965717" duration="726000" />
+      <workItem from="1649124300441" duration="5505000" />
+      <workItem from="1649129820442" duration="4836000" />
+      <workItem from="1649436284247" duration="1685000" />
+      <workItem from="1649459611358" duration="3610000" />
+      <workItem from="1649463493604" duration="4360000" />
+      <workItem from="1649527384564" duration="18833000" />
+    </task>
+    <task id="LOCAL-00001" summary="update requirements.txt">
+      <created>1648525414032</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1648525414032</updated>
+    </task>
+    <task id="LOCAL-00002" summary="working on registration + login">
+      <created>1649133414529</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649133414529</updated>
+    </task>
+    <task id="LOCAL-00003" summary="rollback pyMongo to 4.0.2 to fix bug in library code in 4.1.0">
+      <created>1649463628656</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649463628656</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- link to MongoDB&#10;- basic &quot;username/email already exists&quot; validation">
+      <created>1649467693032</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649467693032</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- refactor to frontend and backend division&#10;- divide code more regularly">
+      <created>1649530232720</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1649530232720</updated>
+    </task>
+    <task id="LOCAL-00006" summary="- refactor to frontend and backend division&#10;- divide code more regularly">
+      <created>1649530641125</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1649530641125</updated>
+    </task>
+    <task id="LOCAL-00007" summary="- refactor to frontend and backend division&#10;- divide code more regularly">
+      <created>1649543578509</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1649543578509</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update requirements.txt" />
+    <MESSAGE value="working on registration + login" />
+    <MESSAGE value="rollback pyMongo to 4.0.2 to fix bug in library code in 4.1.0" />
+    <MESSAGE value="- link to MongoDB&#10;- basic &quot;username/email already exists&quot; validation" />
+    <MESSAGE value="- refactor to frontend and backend division&#10;- divide code more regularly" />
+    <option name="LAST_COMMIT_MESSAGE" value="- refactor to frontend and backend division&#10;- divide code more regularly" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/COMP680_Group8$app.coverage" NAME="app Coverage Results" MODIFIED="1649548423993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
