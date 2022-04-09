@@ -1,49 +1,38 @@
 import sys
 from flask import Flask, send_from_directory
+from pymongo.server_api import ServerApi
 from pywebio.platform.flask import webio_view
 from pywebio.input import *
 from pywebio.output import *
 from pywebio.pin import *
 from pywebio.session import hold
 from PIL import Image, ImageFilter
-from pymongo import MongoClient
 from passlib.hash import pbkdf2_sha256
+import pymongo
+import dns
 
 app = Flask(__name__)
-mstring = "mongodb+srv://bk7777:Csun%402022@cluster0.mwhha.mongodb.net/PROJECT"
 
-client = MongoClient('mongodb+srv://bk7777:Csun%402022@cluster0.mwhha.mongodb.net/test?retryWrites=true&w=majority')
-# client = MongoClient('mongodb+srv://%s:%s@cluster0.mwhha.mongodb.net' % ("bk7777", "Csun@2022"))
-#client = MongoClient(mstring, 27017)
-db = client.myFirstDatabase
+client = pymongo.MongoClient("mongodb+srv://jlord:M0ng0DB@cluster0.lcjq9.mongodb.net/UserInfo?retryWrites=true&w=majority", server_api=ServerApi('1'))
+db = client.test
 emailCol = db["email"]
 unameCol = db["username"]
 
-
-# @app.route('/dbinput/', methods=['GET', 'POST'])
-# def testdb():
-#     credsToDB = {
-#         'email': "john.smith@example.com",
-#         'username': "jsmith1776",
-#         'password': pbkdf2_sha256.hash("americathebeautiful")
-#     }
-#     db.insert_one(credsToDB)
-#
 # @app.route('/')
 # def welcome():
 #     popup("Welcome", [
 #         put_text("Welcome to the application. Please register or login to continue."),
 #         put_buttons(["Okay"], onclick=lambda _: close_popup())
 #     ])
-#
+
 # def validateemail(p):
-#     if emailCol.find({'email': p}):
+#     if :
 #         return "This email already exists in our database."
 #
 # def validateusername(p):
-#     if unameCol.find({'username': p}):
+#     if :
 #         return "This username already exists in our database."
-#
+
 # @app.route('/register')
 # def register(): #TODO: check for duplicate email & username
 #     credentials = input_group("Registration Information", [
