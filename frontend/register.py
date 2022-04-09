@@ -4,6 +4,10 @@ from pywebio.input import *
 import re
 from __main__ import app
 
+from pywebio.platform import flask
+
+from backend.config import coll
+
 passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 usernameRegex = "^[a-zA-Z0-9äöüÄÖÜ]*$"
 
