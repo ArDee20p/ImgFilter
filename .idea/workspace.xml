@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="- un-divide code, because Flask is dumb and blueprints don't want to work either.&#10;- further work on login/registration features.">
-      <change afterPath="$PROJECT_DIR$/app/image_editor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="- remove pyWebIO&#10;- move code into individual files, now that I figured out Flask blueprints.&#10;- start creating HTML templates.">
+      <change afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/image_routines.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/image_routines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/gallery.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/gallery.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/image_editor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/user_profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_profile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/gallery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/image_editor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/image_routines.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/image_routines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/register.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user_profile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/gallery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" />
     </list>
     <list id="2d8115a7-8473-4e96-8ba4-571a3efef6ee" name="Changes by Bhumil" comment="" />
     <list id="53e9e1aa-da48-4fcc-9799-67228474bff8" name="Changes by Student" comment="" />
@@ -29,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -89,10 +94,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app" />
-      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app\backend" />
       <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend" />
       <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app\backend" />
       <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\OLD" />
     </key>
   </component>
@@ -141,7 +146,7 @@
       <workItem from="1649459611358" duration="3610000" />
       <workItem from="1649463493604" duration="4360000" />
       <workItem from="1649527384564" duration="19488000" />
-      <workItem from="1649616061081" duration="2306000" />
+      <workItem from="1649616061081" duration="14553000" />
     </task>
     <task id="LOCAL-00001" summary="update requirements.txt">
       <created>1648525414032</created>
@@ -199,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649548665272</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- remove pyWebIO&#10;- move code into individual files, now that I figured out Flask blueprints.&#10;- start creating HTML templates.">
+      <created>1649618415457</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1649618415457</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,9 +235,10 @@
     <MESSAGE value="- link to MongoDB&#10;- basic &quot;username/email already exists&quot; validation" />
     <MESSAGE value="- refactor to frontend and backend division&#10;- divide code more regularly" />
     <MESSAGE value="- un-divide code, because Flask is dumb and blueprints don't want to work either.&#10;- further work on login/registration features." />
-    <option name="LAST_COMMIT_MESSAGE" value="- un-divide code, because Flask is dumb and blueprints don't want to work either.&#10;- further work on login/registration features." />
+    <MESSAGE value="- remove pyWebIO&#10;- move code into individual files, now that I figured out Flask blueprints.&#10;- start creating HTML templates." />
+    <option name="LAST_COMMIT_MESSAGE" value="- remove pyWebIO&#10;- move code into individual files, now that I figured out Flask blueprints.&#10;- start creating HTML templates." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP680_Group8$app.coverage" NAME="app Coverage Results" MODIFIED="1649618267776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/COMP680_Group8$app.coverage" NAME="app Coverage Results" MODIFIED="1649631689265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
