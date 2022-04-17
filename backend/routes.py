@@ -1,7 +1,7 @@
 import re
 import flask
 import flask_login
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, login_required
 from passlib.handlers.pbkdf2 import pbkdf2_sha256
 from backend.models import User
 from flask import request, redirect, render_template, url_for, flash, session
@@ -104,12 +104,6 @@ def login():
     return render_template('login.html', message=message)
 
 
-@app.route('/protected')
-@flask_login.login_required
-def protected():
-    return 'Logged in as: ' + flask_login.current_user.id
-
-
 @app.route('/logout')
 def logout():
     flask_login.logout_user()
@@ -125,11 +119,17 @@ def image_editor():
 
 # TODO: create public image gallery code here
 @app.route('/gallery')
+@login_required
 def gallery():
     return 'Hello from Gallery!'
 
 
-# TODO: create user profile/private image gallery code here
 @app.route('/user/<username>')
-def profile(user):
-    return 'Hello from Userpage of ' + user
+@login_required
+def profile(username):
+    user = coll.find_one({"username": username})
+    if user is None:
+        flash('User %s not found.' % username)
+        return redirect(url_for('gallery'))
+    userimages = coll.find(uploader=user["username"])
+    return render_template('user.html', user=user, userimages=userimages)
