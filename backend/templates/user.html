@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% block title %}Userpage of {{ user["username"] }}{% endblock %}
 
 {% block content %}
-  <h1>User: {{ user["username"] }}!</h1>
+  <h1>User: {{ user["username"] }}</h1>
   <hr>
   {% for userimage in userimages %} <!--TODO: create cards for images, to be displayed in grid like Instagram.-->
   <p>
