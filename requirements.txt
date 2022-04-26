@@ -4,3 +4,5 @@ PyMongo==4.0.2 #DO NOT upgrade this package to 4.1.0, there is a bug in latest p
 passlib~=1.7.4
 dnspython
 Werkzeug~=2.1.0
+mongoengine~=0.24.1
+WTForms~=3.0.1

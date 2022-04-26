@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}Register System{% endblock %}
-
+{% block title %}ImageApp Registration{% endblock %}
 {% block content %}
-
 {% if message  %}
     <div class="alert alert-secondary" role="alert">
         <p>{{ message }}</p>
     </div>
 {% endif %}
 
-<form action="" method="post">
+<form action="/register" method="post">
     <div class="form-group">
         <label for="inputUsername">Username</label>
         <input name="username" class="form-control" id="inputUsername" aria-describedby="emailHelp" placeholder="Enter username">
@@ -30,8 +28,6 @@
     <label for="InputPassword2">Repeat Password</label>
     <input type="password" name="password2" class="form-control" id="InputPassword2" placeholder="Repeat Password">
     </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-
-
+  <button type="submit" class="btn btn-primary">Register</button>
 </form>
 {% endblock content %}
