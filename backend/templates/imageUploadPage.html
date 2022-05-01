@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block title %}Image Editor{% endblock %}
+
+{% block content %}
+This will be the image editor!
+{% endblock %}
+
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+
+    html, body {
+      height: 100%;
+    }
+
+    .stripes {
+      color: white;
+      background: repeating-linear-gradient(
+        45deg,
+        darkblue,
+        darkblue 10px,
+        slateblue 10px,
+        slateblue 20px
+      );
+    }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.css">
+
+    <title>Simple Photo Editor</title>
+  </head>
+  <body class="bg-dark p-2">
+
+    <nav class="fixed-top shadow bg-dark border-bottom border-warning">
+      <div class="container my-2">
+        <div class="row">
+          <div class="col-8">
+            <div class="h5 p-1 text-warning"><b>Simple Photo Editor</b></div>
+          </div>
+          <div class="col-4 text-right">
+            <span class="h3 text-white">
+              <i class="far fa-image text-success"></i>
+              <i class="fas fa-sliders-h text-success"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="height: 10%"></div>
+
+    <div class="container p-2 rounded" style="background-color: slateblue">
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header"><b>Upload the image file</b></div>
+            <div class="card-body">
+              <div>Only .png .jpg .jpeg file types allowed for now,</div>
+              <div>with a maximum file size of 128 megabytes</div>
+              <hr class="my-3">
+              <form method="POST" enctype="multipart/form-data">
+                <div class="input-group" style="font-size: 0.9rem">
+                  <div class="input-group-prepend">
+                    <button type="submit" name="submit_button" value="upload_image" class="btn btn-block btn-dark" style="font-size: 0.9rem"><b>Upload</b></button>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile" name="file">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+
+    <div class="container" style="height: 2%"></div>
+
+</body>

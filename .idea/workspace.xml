@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="- begin implementation of user profile, and user gallery.">
-      <change afterPath="$PROJECT_DIR$/backend/templates/change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/templates/editor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgfilter_1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/COMP680-Group8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COMP680-Group8.iml" afterDir="false" />
+    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/templates/uploaded.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image_routines.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/image_routines.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/imageUploadPage.html" afterDir="false" />
     </list>
     <list id="2d8115a7-8473-4e96-8ba4-571a3efef6ee" name="Changes by Bhumil" comment="" />
     <list id="53e9e1aa-da48-4fcc-9799-67228474bff8" name="Changes by Student" comment="" />
@@ -81,7 +74,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../photo_editor" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
