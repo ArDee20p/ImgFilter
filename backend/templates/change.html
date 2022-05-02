@@ -1,33 +1,33 @@
 {% extends 'base.html' %}
-{% block title %}Change User Information{% endblock %}
-
+{% block title %}ImageApp - Update Email/Password{% endblock %}
 {% block content %}
-
 {% if message  %}
     <div class="alert alert-secondary" role="alert">
         <p>{{ message }}</p>
     </div>
 {% endif %}
-
 <form action="" method="post">
   <div class="form-group">
-      <label for="InputEmail">Email address</label>
-      <input name="email" class="form-control" id="InputEmail"  placeholder="Enter your email.">
+      <label for="InputEmail">Current email address</label>
+      <input name="email" class="form-control" id="InputEmail"  placeholder="Enter your email address." required>
+  </div>
+    <div class="form-group">
+      <label for="CurrentPassword">Password</label>
+      <input type="password" name="currentpassword" class="form-control" id="CurrentPassword" placeholder="Enter your current password." required>
+  </div>
+    <div class="form-group">
+      <label for="NewEmail">New email address</label>
+      <input name="newemail" class="form-control" id="NewEmail"  placeholder="Enter your new email address, if desired.">
   </div>
   <div class="form-group">
     <label for="InputPassword">Password</label>
-    <input type="password" name="password1" class="form-control" id="InputPassword" placeholder="Password">
-      <small id="passwordHelp" class="form-text text-muted">Your password should be at least 8 characters long, and contain an uppercase and lowercase letter, number, and special character.</small>
+    <input type="password" name="password1" class="form-control" id="InputPassword" placeholder="Enter new password, if desired.">
+      <small id="passwordHelp" class="form-text text-muted">Your new password should be at least 8 characters long, and contain an uppercase and lowercase letter, number, and special character.</small>
   </div>
-
     <div class="form-group">
     <label for="InputPassword2">Repeat Password</label>
-    <input type="password" name="password2" class="form-control" id="InputPassword2" placeholder="Repeat Password">
+    <input type="password" name="password2" class="form-control" id="InputPassword2" placeholder="Repeat new password.">
     </div>
-    <div class="form-group">
-      <label for="CurrentPassword">Password</label>
-      <input type="password" name="currentpassword" class="form-control" id="CurrentPassword" placeholder="Enter your current password.">
-  </div>
   <button type="submit" class="btn btn-primary">Submit Changes</button>
 </form>
 {% endblock %}

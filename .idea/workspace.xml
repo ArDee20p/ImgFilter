@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="- begin implementation of user profile, and user gallery.">
-      <change afterPath="$PROJECT_DIR$/backend/templates/change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/templates/editor.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgfilter_1.ipynb" afterDir="false" />
+    <list default="true" id="d7aaf156-49ac-41fb-ad32-5a1624a203fc" name="Changes" comment="- new login to try and fix cookie issues.">
+      <change afterPath="$PROJECT_DIR$/backend/static/css/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/static/css/user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/static/js/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/COMP680-Group8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COMP680-Group8.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/image_routines.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/image_routines.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/change.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/change.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/editor.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/editor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/gallery.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <list id="2d8115a7-8473-4e96-8ba4-571a3efef6ee" name="Changes by Bhumil" comment="" />
     <list id="53e9e1aa-da48-4fcc-9799-67228474bff8" name="Changes by Student" comment="" />
@@ -26,6 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -79,21 +87,24 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/templates" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend\templates" />
       <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend\templates" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend\styles\css" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend\styles" />
       <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\backend" />
-      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8" />
-      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app" />
-      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\app\backend" />
-      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\OLD" />
+      <recent name="C:\Users\Administrator\PycharmProjects\COMP680-Group8\frontend\styles\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -144,7 +155,10 @@
       <workItem from="1649616061081" duration="15398000" />
       <workItem from="1649702808212" duration="3858000" />
       <workItem from="1650230098806" duration="8990000" />
-      <workItem from="1650816492629" duration="2237000" />
+      <workItem from="1650816492629" duration="2644000" />
+      <workItem from="1650942158793" duration="14981000" />
+      <workItem from="1651185391082" duration="6000000" />
+      <workItem from="1651445132240" duration="7686000" />
     </task>
     <task id="LOCAL-00001" summary="update requirements.txt">
       <created>1648525414032</created>
@@ -223,7 +237,28 @@
       <option name="project" value="LOCAL" />
       <updated>1650231189555</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="- working on user change info function">
+      <created>1650818898695</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1650818898695</updated>
+    </task>
+    <task id="LOCAL-00013" summary="- new login to try and fix cookie issues.">
+      <created>1650957047264</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1650957047265</updated>
+    </task>
+    <task id="LOCAL-00014" summary="- new login to try and fix cookie issues.">
+      <created>1650957070467</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1650957070467</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,9 +285,11 @@
     <MESSAGE value="- remove pyWebIO&#10;- move code into individual files, now that I figured out Flask blueprints.&#10;- start creating HTML templates." />
     <MESSAGE value="- functional login!" />
     <MESSAGE value="- begin implementation of user profile, and user gallery." />
-    <option name="LAST_COMMIT_MESSAGE" value="- begin implementation of user profile, and user gallery." />
+    <MESSAGE value="- working on user change info function" />
+    <MESSAGE value="- new login to try and fix cookie issues." />
+    <option name="LAST_COMMIT_MESSAGE" value="- new login to try and fix cookie issues." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/COMP680_Group8$app.coverage" NAME="app Coverage Results" MODIFIED="1650818599324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/COMP680_Group8$app.coverage" NAME="app Coverage Results" MODIFIED="1651452822307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

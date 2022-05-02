@@ -1,24 +1,26 @@
-import flask_login
-import pymongo
-from flask import Flask
-from pymongo.server_api import ServerApi
+import os
+from os.path import join, dirname, realpath
 
-app = Flask(__name__)
-app.secret_key = 'a0bgF^P(m*jy^iQ$jntTCxLp)raqqpAG'
+import flask_login
+from flask import Flask
+from flask_mongoengine import MongoEngine
+# import pymongo
+# from pymongo.server_api import ServerApi
+
+
+ALLOWED_EXTENSIONS = {'png', 'jpeg', 'jpg'}
+INPUT_FILENAME = ''
+
+
+app = Flask(__name__, template_folder='./templates', static_folder='./static')
+app.config['MONGODB_SETTINGS'] = {
+    'host': "mongodb+srv://jlord:M0ng0DB@cluster0.lcjq9.mongodb.net/UserInfo?retryWrites=true&w=majority"
+}
+db = MongoEngine(app)
+app.config['SECRET_KEY'] = 'a0bgF^P(m*jy^iQ$jntTCxLp)raqqpAG'
+app.config['UPLOAD_FOLDER'] = join(dirname(realpath(__file__)), 'static/uploads/..')
+app.config['MAX_CONTENT_LENGTH'] = 128 * 1024 * 1024
 login_manager = flask_login.LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login'
-
-client = pymongo.MongoClient(
-    "mongodb+srv://jlord:M0ng0DB@cluster0.lcjq9.mongodb.net/UserInfo?retryWrites=true&w=majority",
-    server_api=ServerApi('1'))
-
-# login info collection
-db = client.get_database('LoginInfo')
-coll = db.UserData
-
-# image collection
-imagedb = client.get_database('ImageInfo')
-imagecoll = imagedb.ImageData
 
 from backend import routes

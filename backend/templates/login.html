@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Login{% endblock %}
-
+{% block title %}ImageApp - User Login{% endblock %}
 {% block content %}
-
 {% if message  %}
     <div class="alert alert-secondary" role="alert">
         <p>{{ message }}</p>
     </div>
 {% endif %}
-
-<form action="" method="post"> ## send it to /login, method post
+<form action="" method="post">
   <div class="form-group">
       <label for="InputEmail">Email address</label>
       <input name="email" class="form-control" id="InputEmail"  placeholder="Enter your email.">
