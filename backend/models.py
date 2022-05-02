@@ -1,8 +1,6 @@
-import uuid
-from flask_login import UserMixin
 from mongoengine import Document, StringField, ImageField, ObjectIdField
-
-from backend import login_manager, db
+from flask_login import UserMixin
+from backend import db
 
 
 class Image(Document):
@@ -18,8 +16,3 @@ class User(UserMixin, db.Document):
     username = db.StringField(required=True)
     password = db.StringField(required=True)
     meta = {'collection': 'LoginInfo'}
-
-
-@login_manager.user_loader
-def user_loader(user_id):
-    return User.objects.get(pk=user_id).first()

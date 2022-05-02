@@ -1,6 +1,360 @@
 {% extends 'base.html' %}
-{% block title %}Image Editor{% endblock %}
+{% block title %}ImageApp - Editor{% endblock %}
 
 {% block content %}
-<!--template HTML goes here-->
+<style>
+    html, body {
+      height: 100%;
+    }
+
+    .stripes {
+      color: white;
+      background: repeating-linear-gradient(
+        45deg,
+        darkblue,
+        darkblue 10px,
+        slateblue 10px,
+        slateblue 20px
+      );
+    }
+
+    .btn-label {
+      position: relative;
+      left: -12px;
+      padding: 10px 12px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 3px 0 0 3px;
+    }
+
+    .btn-labeled {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    @keyframes rainbow{
+      0%{color: orange;}
+      10%{color: purple;}
+      20%{color: red;}
+      30%{color: CadetBlue;}
+      40%{color: yellow;}
+      50%{color: coral;}
+      60%{color: green;}
+      70%{color: cyan;}
+      80%{color: DeepPink;}
+      90%{color: DodgerBlue;}
+      100%{color: orange;}
+    }
+
+    </style>
+    <div class="container" id="align" style="height: 15%"></div>
+
+    <div class="container p-2 rounded" style="background-color: slateblue">
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header"><b>Preview</b></div>
+            <div class="card-body mx-auto">
+              {% if filename %}
+                <small class="text-success"><b>Image uploaded succesfully:<br>{{ filename }}</b></small>
+                <div class="my-2"></div>
+                <img src="{{url_for('static', filename=filename)}}" class="rounded" style="max-width: 100%"/>
+              {% else %}
+                <div>No image uploaded yet !</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header"><b>Simple enhance</b></div>
+            <div class="card-body" style="font-size: 0.8rem">
+              <form method="POST">
+                <div for="color"><b>Color</b></div>
+                <small>0 for black/white, 3 for oversaturated</small>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="range" class="custom-range" min="0" max="3" step="0.1" value={{ slider['color'] }} id="color" name="color" onchange="updateTextInput('color_value', this.value);">
+                  </div>
+                  <div class="col-3 text-center">
+                    <span id="color_value" style="color: slateblue">1</span>
+                  </div>
+                </div>
+
+                <hr class="my-1">
+
+                <div for="brightness"><b>Brightness</b></div>
+                <small>0 for complete black</small>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="range" class="custom-range" min="0" max="3" step="0.1" value={{ slider['bright'] }} id="brightness" name="bright" onchange="updateTextInput('brightness_value', this.value);">
+                  </div>
+                  <div class="col-3 text-center">
+                    <span id="brightness_value" style="color: slateblue">1</span>
+                  </div>
+                </div>
+
+                <hr class="my-1">
+
+                <div for="brightness"><b>Contrast</b></div>
+                <small>0 for solid grey image</small>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="range" class="custom-range" min="0" max="3" step="0.1" value={{ slider['contrast'] }} id="contrast" name="contrast" onchange="updateTextInput('contrast_value', this.value);">
+                  </div>
+                  <div class="col-3 text-center">
+                    <span id="contrast_value" style="color: slateblue">1</span>
+                  </div>
+                </div>
+
+                <hr class="my-1">
+
+                <div for="brightness"><b>Sharpness</b></div>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="range" class="custom-range" min="0" max="3" step="0.1" value={{ slider['sharp'] }} id="sharpness" name="sharp" onchange="updateTextInput('sharpness_value', this.value);">
+                  </div>
+                  <div class="col-3 text-center">
+                    <span id="sharpness_value" style="color: slateblue">1</span>
+                  </div>
+                </div>
+
+                <button type="submit" name="enhance_button" value="enhance" class="btn btn-block btn-dark mt-2"><b>Apply</b></button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header" style="animation: rainbow 20s infinite"><b>Hue shift</b></div>
+            <div class="card-body" style="font-size: 0.8rem">
+              <form method="POST">
+                <div for="color"><b>Hue</b></div>
+                <small>Ranges from -180° to 180°</small>
+                <div class="row mb-2">
+                  <div class="col-9">
+                    <input type="range" class="custom-range" min="-180" max="180" step="1" value="0" id="hue_angle" name="hue_angle" onchange="updateTextInput('hue_value', this.value); updateColorValues('domin_colors', this.value);">
+                  </div>
+                  <div class="col-3 text-center">
+                    <span id="hue_value" style="color: slateblue">0</span>
+                  </div>
+                </div>
+
+                {% if filename %}
+                <div class="row" id="domin_colors">
+                  <div class="col-4 ml-3 p-2 rounded" style="background-color: rgb{{ colors[0][1] }}">
+                  </div>
+                  <div class="col-2 mx-auto p-2 rounded" style="background-color: rgb{{ colors[1][1] }}">
+                  </div>
+                  <div class="col-2 mx-auto p-2 rounded" style="background-color: rgb{{ colors[2][1] }}">
+                  </div>
+                  <div class="col-1 mx-auto p-2 rounded" style="background-color: rgb{{ colors[3][1] }}">
+                  </div>
+                  <div class="col-1 mr-3 p-2 rounded" style="background-color: rgb{{ colors[4][1] }}">
+                  </div>
+                </div>
+                {% else %}
+                <div>No image uploaded yet !</div>
+                {% endif %}
+
+                <button type="submit" name="hue_button" value="hue" class="btn btn-block btn-dark mt-2"><b>Apply</b></button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header"><b>Apply filters</b></div>
+            <a href="#demo1" class="btn btn-dark" data-toggle="collapse" style="margin: 1.25rem"><b>Open / Close</b></a>
+            <div class="card-body collapse" id="demo1">
+
+              <div class="row">
+                <div class="col-sm-5 mx-auto my-2 p-2 text-center stripes rounded">
+                  <div class="h5">Blur</div>
+                  <form method="POST">
+                    <button type="submit" name="blur_button" value="0" class="btn btn-primary">Blur</button>
+                    <button type="submit" name="blur_button" value="1" class="btn btn-primary">BoxBlur(1)</button>
+                    <button type="submit" name="blur_button" value="2" class="btn btn-primary">GaussianBlur</button>
+                  </form>
+                </div>
+
+                <div class="col-sm-5 mx-auto my-2 p-2 text-center stripes rounded">
+                  <div class="h5">Sharpen</div>
+                  <form method="POST">
+                    <button type="submit" name="sharpen_button" value="0" class="btn btn-primary">Sharpen</button>
+                    <button type="submit" name="sharpen_button" value="1" class="btn btn-primary">Detail</button>
+                    <button type="submit" name="sharpen_button" value="2" class="btn btn-primary">UnsharpMask</button>
+                  </form>
+                </div>
+
+                <div class="col-sm-5 mx-auto my-2 p-2 text-center stripes rounded">
+                  <div class="h5">Edge Enhance</div>
+                  <form method="POST">
+                    <div class="my-1">
+                      <button type="submit" name="edge_button" value="0" class="btn btn-primary">EdgeEnhance</button>
+                      <button type="submit" name="edge_button" value="1" class="btn btn-primary">EdgeEnhMore</button>
+                    </div>
+                    <div>
+                      <button type="submit" name="edge_button" value="2" class="btn btn-primary">Emboss</button>
+                      <button type="submit" name="edge_button" value="3" class="btn btn-primary">FindEdges</button>
+                      <button type="submit" name="edge_button" value="4" class="btn btn-primary">Contour</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="col-sm-5 mx-auto my-2 p-2 text-center stripes rounded">
+                  <div class="h5">Smooth</div>
+                  <form method="POST">
+                    <button type="submit" name="smooth_button" value="0" class="btn btn-primary">Smooth</button>
+                    <button type="submit" name="smooth_button" value="1" class="btn btn-primary">SmoothMore</button>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header"><b>Rotate / Resize / Crop</b></div>
+            <a href="#demo2" class="btn btn-dark" data-toggle="collapse" style="margin: 1.25rem"><b>Open / Close</b></a>
+            <div class="card-body collapse mx-auto" id="demo2">
+
+              {% if filename %}
+                <small class="text-success"><b>Your image size is:<br>({{ width }}, {{ height}})</b></small>
+              {% else %}
+                <div>No image uploaded yet !</div>
+              {% endif %}
+
+              <div class="row">
+                <div class="col-sm-12 mx-auto my-2 p-2 text-center stripes rounded">
+                  <form method="POST">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Angle</span>
+                      </div>
+                      <input type="text" class="form-control" name="angle" placeholder="angle">
+                    </div>
+
+                    <button type="submit" name="rotate_button" value="rotate" class="btn btn-primary btn-block"><b>Rotate</b></button>
+                  </form>
+                </div>
+
+                <div class="col-sm-12 mx-auto my-2 p-2 text-center stripes rounded">
+                  <form method="POST">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Width</span>
+                      </div>
+                      <input type="text" class="form-control" name="width" placeholder="width">
+                    </div>
+
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Height</span>
+                      </div>
+                      <input type="text" class="form-control" name="height" placeholder="height">
+                    </div>
+
+                    <button type="submit" name="resize_button" value="resize" class="btn btn-primary btn-block"><b>Resize</b></button>
+                  </form>
+                </div>
+
+                <div class="col-sm-12 mx-auto my-2 p-2 text-center stripes rounded">
+                  {% if filename %}
+                    <img src="{{url_for('static', filename= filename)}}" class="rounded" style="max-width: 100%" id="cropper"/>
+                    <div class="my-2"></div>
+                  {% else %}
+                    <div>No image uploaded yet !</div>
+                  {% endif %}
+                  <form method="POST">
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">Start coords.</span>
+                      </div>
+                      <input type="text" name="start_x" class="form-control" placeholder="x" id="start_x" readonly>
+                      <input type="text" name="start_y" class="form-control" placeholder="y" id="start_y" readonly>
+                    </div>
+
+                    <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="">End coords.</span>
+                      </div>
+                      <input type="text" name="end_x" class="form-control" placeholder="x + w" id="end_x" readonly>
+                      <input type="text" name="end_y" class="form-control" placeholder="y + h" id="end_y" readonly>
+                    </div>
+
+                    <button type="submit" name="crop_button" value="crop" class="btn btn-primary btn-block"><b>Crop</b></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container" style="height: 2%"></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then FontAwesome-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.min.js"></script>
+    <script>
+      function updateTextInput(id, val) {
+          element = document.getElementById(id);
+          element.innerHTML = val;
+        }
+      updateTextInput('color_value', {{ slider['color'] }});
+      updateTextInput('brightness_value', {{ slider['bright'] }});
+      updateTextInput('contrast_value', {{ slider['contrast'] }});
+      updateTextInput('sharpness_value', {{ slider['sharp'] }});
+    </script>
+    <script>
+      function updateColorValues(id, val) {
+          parent = document.getElementById(id);
+          var i;
+
+          for(i = 0; i < 5; i++)
+            parent.children[i].style.filter = 'hue-rotate(' + val +'deg)';
+        }
+    </script>
+    <script>
+      var image = document.getElementById('cropper');
+      var image_allign = $("#align").width() - 18;
+      var cropper = new Cropper(image, {
+        viewMode: 2,
+        background: false,
+        movable: false,
+        zoomable: false,
+        rotatable: false,
+        strict: true,
+        minContainerWidth: image_allign,
+        minContainerHeight: 125,
+        crop(event) {
+          document.getElementById("start_x").value = Math.round(event.detail.x);
+          document.getElementById("start_y").value = Math.round(event.detail.y);
+          document.getElementById("end_x").value = Math.round(event.detail.x + event.detail.width);
+          document.getElementById("end_y").value = Math.round(event.detail.y + event.detail.height);
+        },
+      });
+    </script>
 {% endblock %}

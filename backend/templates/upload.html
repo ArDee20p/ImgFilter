@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}ImageApp - Upload{% endblock %}
+
+{% block content %}
+<style>
+    input[type=file]{
+    width:90px;
+    color:transparent;
+}
+</style>
+    <div class="container" style="height: 10%"></div>
+    <div class="container p-2 rounded" style="background-color: slateblue">
+      <div class="row my-2">
+        <div class="col-sm-12">
+          <div class="card h5">
+            <div class="card-header"><b>Upload the image file</b></div>
+            <div class="card-body">
+              <div>Only .png .jpg .jpeg file types allowed,</div>
+              <div>with a maximum file size of 128 megabytes</div>
+              <hr class="my-3">
+              <form method="POST" enctype="multipart/form-data">
+                <div class="input-group" style="font-size: 0.9rem">
+                  <div class="input-group-prepend">
+                    <button type="submit" name="submit_button" value="upload_image" class="btn btn-block btn-dark" style="font-size: 0.9rem"><b>Upload</b></button>
+                  </div>
+                  <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile" name="file">
+                      <label class="custom-file-label" for="customFile" id="fileLabel">{{ filemessage }}</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+
+    <div class="container" style="height: 2%"></div>
+{% endblock %}
