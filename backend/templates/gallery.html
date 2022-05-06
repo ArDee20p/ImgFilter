@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 {% block title %}Public Gallery{% endblock %}
-
 {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ImageApp - Gallery [MOCKUP, NOT FINAL]</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+</head>
+<main>
+    {% for i in range(0,len) %}
+        <div class="container">
+            <div class="gallery">
+                <div class="gallery-item" tabindex="0">
+                    <img src={{url_for('static', filename='uploads/' + images[i])}} class="gallery-image" alt="">
+                    <div class="gallery-item-info">
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%endfor%}
+</main>
 {% endblock %}
