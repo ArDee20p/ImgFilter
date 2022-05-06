@@ -57,7 +57,7 @@
               {% if filename %}
                 <small class="text-success"><b>Image uploaded succesfully:<br>{{ filename }}</b></small>
                 <div class="my-2"></div>
-                <img src="{{url_for('static', filename=filename)}}" class="rounded" style="max-width: 100%"/>
+                <img src="{{url_for('static', filename='uploads/' + filename)}}" class="rounded" style="max-width: 100%"/>
               {% else %}
                 <div>No image uploaded yet !</div>
               {% endif %}

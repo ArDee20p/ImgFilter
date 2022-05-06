@@ -3,6 +3,7 @@ import os
 import re
 from flask_login import login_user, current_user, logout_user
 from passlib.handlers.pbkdf2 import pbkdf2_sha256
+from pymongo import settings
 from werkzeug.utils import secure_filename
 
 from backend.image_routines import *
@@ -250,11 +251,15 @@ def uploaded():
         return render_template('editor.html', slider=slider)
 
 
-# TODO: create public image gallery code here. use user gallery code as base, but remove user header.
 # @login_required
 @app.route('/gallery')
 def gallery():
-    return render_template('gallery.html')
+    images = []
+    for root, dirs, files in os.walk(app.config['UPLOAD_FOLDER']):
+        for file in files:
+            if file.endswith(".png") or file.endswith(".jpg") or file.endswith(".jpeg"):
+                images.append(file)
+    return render_template('gallery.html', images=images, len=len(images))
 
 
 # @login_required
